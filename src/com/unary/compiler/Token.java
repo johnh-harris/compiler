@@ -1,4 +1,3 @@
-package src.com.unary.compiler;
 
 // Returns output file of tokens
 

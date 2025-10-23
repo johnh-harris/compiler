@@ -1,4 +1,3 @@
-package src.com.unary.compiler;
 
 public class PrattParser {
     public static void main(String[] args) {

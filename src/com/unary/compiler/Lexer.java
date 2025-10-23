@@ -1,4 +1,3 @@
-package src.com.unary.compiler;
 
 class Lexer {
     private final String input;
