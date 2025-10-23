@@ -1,6 +1,3 @@
-
-// Returns output file of tokens
-
 class Token {
     public final String type;
     public final String value;
