@@ -1,8 +1,6 @@
-
-// Transpiler.java
 import java.util.*;
 
-// === Step 1: Abstract Syntax Tree (already have Node class) ===
+// Abstract Syntax Tree (already have Node class)
 class Node {
     public final String type;
     public final Object value;
@@ -15,7 +13,7 @@ class Node {
     }
 }
 
-// === Step 2: Transpiler (Python → Unary) ===
+// Step 2: Transpiler (Python -> Unary)
 class Transpiler {
     public String transpile(Node ast) {
         StringBuilder out = new StringBuilder();
