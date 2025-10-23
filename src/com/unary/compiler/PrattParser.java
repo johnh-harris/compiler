@@ -1,10 +1,13 @@
+import java.util.*;
 
 public class PrattParser {
-    public static void main(String[] args) {
         // grab tokens this will be a file path
-        Lexer lexer = new Lexer("ADD 1 3");
-        Parser parser = new Parser(lexer);
-        Node result = parser.parseExpression(0);
-        System.out.println("Parsed: " + result);
+	public static void main(String[] args) {
+	Lexer lexer = new Lexer(args[0]);
+        //Parser parser = new Parser(new Lexer(tokens));
+        
+	//Node ast = parser.parseExpression(0);
+        
+	//System.out.println("Parsed AST: " + ast.type);
     }
 }

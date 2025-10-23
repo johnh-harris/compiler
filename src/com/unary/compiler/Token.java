@@ -5,12 +5,10 @@ class Token {
     public final String type;
     public final String value;
     public final int line;
-    public Token next;
 
-    public Token(String type, String value, int line, Token next) {
+    public Token(String type, String value, int line) {
         this.type = type;
         this.value = value;
-        this.next = next;
         this.line = line;
     }
 }

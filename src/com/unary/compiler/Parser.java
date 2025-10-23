@@ -1,18 +1,22 @@
+import java.util.ArrayList;
 
 import java.util.List;
 import java.util.Arrays;
 
+
 class Parser {
 	private final Lexer lexer;
+	List<Token> tokens = new ArrayList<>();
     	private Token token;
 
+	// this is going to change to an arraylist of tokens
     	public Parser(Lexer lexer) {
         	this.lexer = lexer;
-        	this.token = lexer.nextToken();
+        	//this.token = lexer.nextToken();
     	}
 
     	private void next() {
-        	token = lexer.nextToken();
+        	//token = lexer.nextToken();
     	}
 
     	public Node parseExpression(int rbp) {
