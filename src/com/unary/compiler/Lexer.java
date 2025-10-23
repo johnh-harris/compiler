@@ -36,6 +36,9 @@ class Lexer {
 				Character c = line.charAt(i);
 				if(Character.isDigit(c)) {
 					if(isLetter) {
+						if(!validOperator(token)) {
+							throw new Exception("SYNTAX ERROR INVALID OPERATOR");
+						}
 						Token t = new Token("OPERATOR", token, pos);
 						tokens.add(t);
 						isLetter = false;
@@ -56,6 +59,23 @@ class Lexer {
 						token += c;
 						isLetter = true;
 					}
+				} else {
+					if(isNumber) {
+						Token t = new Token("NUMBER", token, pos);
+						tokens.add(t);
+						isLetter = false;
+						isNumber = false;
+						token = "";
+					} else { // space
+						if(!validOperator(token)) {
+							throw new Exception("SYNTAX ERROR INVALID OPERATOR");
+						}
+						Token t = new Token("OPERATOR", token, pos);
+						tokens.add(t);
+						isLetter = false;
+						isNumber = true;
+						token = "";
+					}
 				}
 			}
 			if (!token.isEmpty()) {
@@ -73,38 +93,8 @@ class Lexer {
 	return tokens;
     }
 
-    // This is probably going to be deprecated
-    public Token nextToken(String line) {
-	
-	// read from file
-        // Skip whitespace
-        /*while (Character.isWhitespace(peek())) advance();
-
-        // End of input
-        if (peek() == '\0') return null;
-
-        char ch = peek();
-
-        // Numbers
-        if (Character.isDigit(ch)) {
-            StringBuilder num = new StringBuilder();
-            while (Character.isDigit(peek()) || peek() == '.') {
-                num.append(peek());
-                advance();
-            }
-            return new Token("NUMBER", num.toString(), 0);
-        }
-
-        // Operators
-        switch (ch) {
-            case '+': advance(); return new Token("PLUS", "+", 0);
-            case '-': advance(); return new Token("MINUS", "-", 0);
-            case '*': advance(); return new Token("MULT", "*", 0);
-            case '/': advance(); return new Token("DIV", "/", 0);
-            default:
-                throw new RuntimeException("Unexpected character: " + ch);
-        }*/
-	return null;
+    private boolean validOperator(String input) {
+	    return input.equals("ADDITION") || input.equals("SUBTRACTION") || input.equals("MULTIPLICATION") || input.equals("DIVISION");
     }
 }
 
